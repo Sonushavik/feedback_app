@@ -1,18 +1,37 @@
 <%- include('partials/header') %>
 <%- include('partials/navbar') %>
+<%- include('partials/flash') %>
 
 <div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
   <div class="col-md-6 bg-light p-4 rounded shadow">
     <h2 class="text-center mb-4 text-primary">Login to <span class="text-info">VoicY</span></h2>
-    
-    <form action="/login" method="POST">
+
+    <% if (error && error.length > 0) { %>
+      <div class="alert alert-danger text-center"><%= error[0] %></div>
+    <% } %>
+
+    <form action="/login" method="POST" novalidate>
       <div class="mb-3">
         <label for="username" class="form-label">Username</label>
-        <input type="text" name="username" id="username" class="form-control" required placeholder="Enter your username" />
+        <input 
+          type="text" 
+          name="username" 
+          id="username" 
+          class="form-control <% if (error.length) { %>is-invalid<% } %>" 
+          required 
+          placeholder="Enter your username" 
+        />
       </div>
       <div class="mb-3">
         <label for="password" class="form-label">Password</label>
-        <input type="password" name="password" id="password" class="form-control" required placeholder="Enter your password" />
+        <input 
+          type="password" 
+          name="password" 
+          id="password" 
+          class="form-control <% if (error.length) { %>is-invalid<% } %>" 
+          required 
+          placeholder="Enter your password" 
+        />
       </div>
       <button type="submit" class="btn custom-navbar w-100">Login</button>
     </form>

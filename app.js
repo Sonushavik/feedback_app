@@ -53,15 +53,31 @@ app.get("/", (req, res) => res.render("home"));
 
 app.get("/register", (req, res) => res.render("register"));
 app.post("/register", async (req, res) => {
-  const { username, password,email } = req.body;
-  const hashedPwd = await bcrypt.hash(password, 12);
-  const user = new User({ username, password: hashedPwd ,email});
-  await user.save();
-  req.login(user, err => {
-    if (err) return next(err);
-    res.redirect("/feedback");
-  });
+  const { username, password, email } = req.body;
+
+  try {
+    const existingUser = await User.findOne({ username });
+    if (existingUser) {
+      req.flash("error", "Username already exists");
+      return res.render("register", { old: { username, email } });
+    }
+
+    const hashedPwd = await bcrypt.hash(password, 12);
+    const user = new User({ username, password: hashedPwd, email });
+    await user.save();
+
+    req.login(user, err => {
+      if (err) return next(err);
+      res.redirect("/feedback");
+    });
+
+  } catch (err) {
+    console.error(err);
+    req.flash("error", "Something went wrong during registration");
+    res.render("register", { old: { username, email } });
+  }
 });
+
 
 app.get("/login", (req, res) => res.render("login"));
 app.post("/login",

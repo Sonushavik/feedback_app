@@ -1,0 +1,38 @@
+<% if (success && success.length > 0) { %>
+  <div id="flash-message" class="alert alert-success alert-dismissible fade show text-center" role="alert">
+    <%= success[0] %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<% } %>
+
+<% if (error && error.length > 0) { %>
+  <div id="flash-message" class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+    <%= error[0] %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<% } %>
+
+<script>
+ 
+  setTimeout(() => {
+    const flash = document.getElementById("flash-message");
+    if (flash) {
+      flash.classList.remove("show");
+      flash.classList.add("fade-out");
+      setTimeout(() => {
+        flash.remove();
+      }, 500); 
+    }
+  }, 3000);
+</script>
+
+<style>
+  #flash-message {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .fade-out {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+</style>
