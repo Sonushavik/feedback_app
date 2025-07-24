@@ -1,5 +1,7 @@
 # 📋 Feedback App
 
+live: https://voicy-rhwv.onrender.com/
+
 This is a full-stack web application that allows users to:
 
 - Register and log in
@@ -87,4 +89,8 @@ Copy code
 npm start
 Server runs on http://localhost:3000
 
+<<<<<<< HEAD
 Made with ❤️ by Sonu kumar — a passionate web developer from India 💻✨
+=======
+Made with ❤️ by Sonu kuamr — a passionate web developer from India 💻✨
+>>>>>>> 4a9d570a80ef1caef7441e2faa788933fd96585f
