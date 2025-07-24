@@ -1,0 +1,90 @@
+# 📋 Feedback App
+
+This is a full-stack web application that allows users to:
+
+- Register and log in
+- Submit feedback/testimonials
+- Like and dislike feedback from other users
+- View all feedback publicly
+- Navbar shows user name and dynamic auth links
+- Uses Bootstrap for styling and Passport.js for authentication
+
+---
+
+## 🚀 Features
+
+- 🔐 User Authentication (Register/Login)
+- ✍️ Authenticated users can submit feedback
+- 👍 Like/👎 Dislike feedback with live counts
+- 📃 View all feedback on the home page
+- 👤 Logged-in user’s name shown in navbar
+- 💡 Bootstrap UI for responsive design
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** EJS, Bootstrap
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB (Mongoose)
+- **Authentication:** Passport.js (LocalStrategy)
+
+---
+
+## 📂 Project Structure
+
+feedback_app/
+│
+├── models/
+│ ├── Feedback.js
+│ └── User.js
+│
+├── routes/
+│ ├── auth.js
+│ └── feedback.js
+│
+├── views/
+│ ├── partials/
+│ │ ├── header.ejs
+│ │ └── footer.ejs
+│ ├── feedback.ejs
+│ ├── login.ejs
+│ └── register.ejs
+│
+├── public/
+│ └── css/
+│ └── styles.css
+│
+├── .env
+├── app.js
+├── package.json
+└── README.md
+
+
+---
+
+## 🚦 How to Run
+
+
+## 🚦 How to Run
+
+
+1. **Clone the repo:**
+
+git clone https://github.com/your-username/feedback-app.git
+cd feedback-app
+
+
+Install dependencies:
+
+npm install
+Set up MongoDB & .env
+
+Run the server:
+
+bash
+Copy code
+npm start
+Server runs on http://localhost:3000
+
+Made with ❤️ by Sonu kuamr — a passionate web developer from India 💻✨

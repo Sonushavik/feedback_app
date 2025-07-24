@@ -1,0 +1,18 @@
+body {
+  background-color: #0d5aa6;
+}
+
+.custom-navbar {
+  background: linear-gradient(90deg, #4e54c8, #8f94fb); /* vibrant gradient */
+}
+
+.custom-navbar .nav-link,
+.custom-navbar .navbar-brand,
+.custom-navbar .navbar-toggler {
+  color: white !important;
+}
+
+.custom-navbar .nav-link:hover {
+  color: #ffe58a !important; /* highlight on hover */
+}
+
